@@ -28,7 +28,7 @@ class TestStdGrades(TestCase):
             {'name': 'Aisha', 'mark': 8},
             {'name': 'Zac', 'mark': '8'},
         ]
-        expected = 7.25  # (8+8+6+7) / 4
+        expected = 7.25
 
         result = average_exam_score(my_input)
         self.assertEqual(expected, result)
@@ -40,7 +40,7 @@ class TestStdGrades(TestCase):
             {'name': 'Aisha', 'mark': 8},
             {'name': 'Zac'},  # should be 5
          ]
-         expected = 6.5 # (5+8+6+7) / 4
+         expected = 6.5
 
          result = average_exam_score(my_input)
          self.assertEqual(expected, result)
