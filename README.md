@@ -1,6 +1,6 @@
 # Revision Gamers - Education
 
-Private repository for group project - Software Nanodegree 2022
+Private repository for a group project - Software Nanodegree 2022
 
 #### Authors:
 Munisha Boora, Rebecca Brunning, Ellie Mayne, Shida Koka, and Xian-Ting Lee
