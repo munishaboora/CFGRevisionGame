@@ -1,5 +1,4 @@
 
---Rebeccas
  CREATE database if not exists quiz_game;
 
  USE quiz_game;
