@@ -2,7 +2,7 @@ import itertools
 from api.revision_game import get_data, string_slice
 
 class MultipleChoiceQuiz:
-    def __init__(self, ):
+    def __init__(self):
         self.questions = get_data("question")
         self.ans1 = get_data("ans1")
         self.ans2 = get_data("ans2")
