@@ -1,4 +1,4 @@
-from db_utils import database_connection
+from api.db_utils import database_connection
 
 #Getting data from quiz db
 def get_data(column_name):
