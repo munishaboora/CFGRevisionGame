@@ -12,9 +12,9 @@ Our project is a revision application designed specifically for all CodeFirstGir
 
 To use our revision application:
 
-Download all files in CFGRevisionGame repository
-Run run.py file in PyCharm using Python 3
-Follow the link in PyCharm terminal: http://127.0.0.1:5000/
+- Download all files in CFGRevisionGame repository
+- Run run.py file in PyCharm using Python 3.
+- Follow the link in PyCharm terminal: http://127.0.0.1:5000/
 
 
 
