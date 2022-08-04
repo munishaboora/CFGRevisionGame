@@ -1,6 +1,9 @@
 import itertools
 from api.revision_game import get_data, string_slice
 
+def hello():
+    print("hiiiiiii")
+
 class MultipleChoiceQuiz:
     def __init__(self):
         self.questions = get_data("question")
