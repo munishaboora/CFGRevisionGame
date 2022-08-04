@@ -5,6 +5,6 @@ def database_connection():
     quiz_db = mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Sonia.moto?",
+        password="Sonia.moto123?",
         database="quiz_game")
     return quiz_db

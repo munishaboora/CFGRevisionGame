@@ -3,25 +3,24 @@ from unittest import TestCase, main, mock
 from client.main import new_game
 
 
-new_game.start_game()
-# print()
-# class TestStartGame(TestCase):
-#
-#     def test_odd_number(self):
-#         expected = 'Red'
-#         result = new_game.start_game()
-#         self.assertEqual(expected, result)
-#
-#     def test_even_and_grater_twenty(self):
-#         expected = 'Blue'
-#         result = red_or_blue(num=22)
-#         self.assertEqual(expected, result)
-#
-#     def test_even_in_range_6_20(self):
-#         expected = 'Red'
-#         result = red_or_blue(num=12)
-#         self.assertEqual(expected, result)
-#
+class TestStartGame(TestCase):
+
+    def test_odd_number(self):
+        input = ['d', 'b', 'd', 'c', 'b', 'b', 'c']
+        expected = 'Final score: 7/7 Percentage: 100%'
+        result = new_game.start_game()
+        self.assertEqual(expected, result)
+
+    # def test_even_and_grater_twenty(self):
+    #     expected = 'Blue'
+    #     result = red_or_blue(num=22)
+    #     self.assertEqual(expected, result)
+    #
+    # def test_even_in_range_6_20(self):
+    #     expected = 'Red'
+    #     result = red_or_blue(num=12)
+    #     self.assertEqual(expected, result)
+
 # class TestStdGrades(TestCase):
 #
 #     def test_calculate_average(self):
@@ -62,9 +61,8 @@ new_game.start_game()
 #
 #
 #
-# if __name__ == "__main__":
-#     main()
-#
-#
-#
-#
+if __name__ == "__main__":
+    main()
+
+
+

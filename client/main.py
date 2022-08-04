@@ -1,8 +1,6 @@
 import itertools
 from api.revision_game import get_data, string_slice
 
-def hello():
-    print("hiiiiiii")
 
 class MultipleChoiceQuiz:
     def __init__(self):
@@ -49,8 +47,7 @@ class MultipleChoiceQuiz:
                 self.num_questions_answered += 1
 
         percentage = int(round((self.score / self.quiz_length) * 100))
-        print(f"\nFinal score: {self.score}/{self.quiz_length}"
-              f"\nPercentage: {percentage}%")
+        return print(f"\nFinal score: {self.score}/{self.quiz_length}\nPercentage: {percentage}%")
 
 
 new_game = MultipleChoiceQuiz()
