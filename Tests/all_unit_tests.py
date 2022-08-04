@@ -1,6 +1,6 @@
 import unittest
 from unittest import TestCase, main, mock
-from client.main import new_game
+from CFGRevisionGame.client.main import
 
 
 new_game.start_game()
