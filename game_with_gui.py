@@ -65,7 +65,6 @@ class MultipleChoiceQuiz:
         self.buttons()
         self.quiz_length = len(question)
 
-
     def display_question(self):
         each_opt = Label(quiz_gui, text=str(question[self.question_number])[2:-3], width=60,
                          font=('courier', 14, 'bold'), anchor='w')
