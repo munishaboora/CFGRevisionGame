@@ -34,11 +34,23 @@ class TopicSelection:
         cat_next_button.place(x=570, y=483)
 
     def category_next_button(self):
-        category_num_chosen = self.category_opt_selected.get()
-        if category_num_chosen := str(categories[category_num_chosen - 1])[2:-3]:
-            global user_category
-            user_category = category_num_chosen
-            topic_gui.destroy()
+
+        try:
+            category_num_chosen = self.category_opt_selected.get()
+            valid_option_selected(category_num_chosen)
+
+        except NoOptionSelectedError as no_opt_msg:  # at this point raise exception if no option is selected
+            messagebox.showerror("Warning", f"{no_opt_msg}")
+            number_chosen = self.opt_selected.get()
+
+            while number_chosen == 0:
+                category_num_chosen = self.category_opt_selected.get()
+                valid_option_selected(category_num_chosen)
+        else:
+            if category_num_chosen := str(categories[category_num_chosen - 1])[2:-3]:
+                global user_category
+                user_category = category_num_chosen
+                topic_gui.destroy()
 
     def category_buttons(self):
         category_list = []
