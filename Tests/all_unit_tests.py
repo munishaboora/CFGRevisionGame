@@ -1,11 +1,13 @@
 import unittest
 from unittest import TestCase, main, mock
-from client.main import new_game
+from client.main import MultipleChoiceQuiz
+
 
 
 class TestStartGame(TestCase):
 
     def test_odd_number(self):
+        new_game = MultipleChoiceQuiz()
         input = ['d', 'b', 'd', 'c', 'b', 'b', 'c']
         expected = 'Final score: 7/7 Percentage: 100%'
         result = new_game.start_game()
