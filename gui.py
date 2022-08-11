@@ -1,18 +1,7 @@
-# gui
-
-# from tkinter import *
-from quiz_function_x import QuizLogic
 from tkinter import Tk, IntVar, Label, Radiobutton, Button, messagebox
-from constants_x import *
-
-class NoOptionSelectedError(Exception):
-    def __init__(self, no_opt_msg):
-        super().__init__(no_opt_msg)
-
-
-def valid_option_selected(number_chosen):
-    if number_chosen == 0:
-        raise NoOptionSelectedError('You must enter an answer.')
+from functions import QuizLogic
+from error_except import *
+from constants import *
 
 
 class QuizGui:
@@ -20,9 +9,9 @@ class QuizGui:
         self.quiz = quiz_logic
         self.window = Tk()
         self.window.title('CFG Project Quiz')
-        self.window.geometry('881x600')
+        self.window.geometry('986x635')
         self.window.resizable(False, False)
-        # self.window.configure(bg = WHITE)
+        # self.window.configure(bg = BLACK)
 
         # display title
         self.display_title()
@@ -37,8 +26,6 @@ class QuizGui:
         self.opts = self.option_buttons()
         self.display_options()
 
-        # self.feedback = Label(self.window, pady = 10, font = ("ariel", 15, "bold"))
-        # self.feedback.place(x = 300, y = 380)
         # Next and Quit Button
         self.buttons()
 
@@ -51,7 +38,7 @@ class QuizGui:
         # title
         title = Label(self.window,
                       text = 'CFG Project Quiz',
-                      width = 25,
+                      width = 28,
                       bg = PURPLE,
                       fg = WHITE,
                       font = TITLE_FONT
@@ -66,14 +53,16 @@ class QuizGui:
         # question
         question_txt = Label(self.window,
                              text = self.quiz.next_q(),
-                             width = 70,
-                             # bg = WHITE,
+                             width = 60,
+                             wraplength = 760,
+                             justify = 'left',
+                             pady = 25,
                              font = QUESTION_FONT,
                              anchor = 'w'
                              )
 
         # place of the question
-        question_txt.place(x=100, y=160)
+        question_txt.place(x=100, y=122)
 
     def option_buttons(self):
         """To create four option buttons using radio buttons"""
@@ -82,7 +71,7 @@ class QuizGui:
         opt_list = []
 
         # position of the first option
-        y_axis = 230
+        y_axis = 250
 
         # adding options to the list
         while len(opt_list) < 4:
@@ -90,25 +79,20 @@ class QuizGui:
             # setting the radio button properties
             radio_button = Radiobutton(self.window,
                                        text = ' ',
-                                       # indicatoron = 1,
-                                       # width = 50,
-                                       # padx = 30,
-                                       wraplength = 700,
+                                       wraplength = 675,
                                        variable = self.opt_selected,
-                                       # bg = WHITE,
-                                       selectcolor = PURPLE,
                                        value = len(opt_list) + 1,
-                                       font = OPTIONS_FONT,
+                                       font = OPTIONS_FONT
                                        )
 
             # adding the buttons to the list
             opt_list.append(radio_button)
 
-            # placing the button
+            # place of the button
             radio_button.place(x = 145, y = y_axis)
 
             # incrementing the y-axis by 65
-            y_axis += 65
+            y_axis += 70
 
         # return the radio buttons
         return opt_list
@@ -164,22 +148,21 @@ class QuizGui:
                              command = self.next_button,
                              width = 6,
                              bg = PURPLE,
-                             # fg = WHITE,
                              font = BUTTON_FONT)
         # place of the next button
-        next_button.place(x = 390, y = 500)
+        next_button.place(x = 430, y = 545)
 
-        # display the quit button
-        quit_button = Button(self.window,
-                             text = 'Quit',
-                             command = self.window.destroy,
-                             width = 6,
-                             bg = WHITE,
-                             # fg = BLACK,
-                             font = BUTTON_FONT)
-
-        # place of the quit button
-        quit_button.place(x = 745, y = 100)
+        # # display the quit button
+        # quit_button = Button(self.window,
+        #                      text = 'Quit',
+        #                      command = self.window.destroy,
+        #                      width = 6,
+        #                      bg = WHITE,
+        #                      # fg = BLACK,
+        #                      font = BUTTON_FONT)
+        #
+        # # place of the quit button
+        # quit_button.place(x = 835, y = 110)
 
     def result_messagebox(self):
         """To display the result using messagebox"""
@@ -193,4 +176,3 @@ class QuizGui:
 
         # shows a message box to display the result
         messagebox.showinfo(f'Result', f'{result}\n{correct}\n{wrong}')
-

@@ -1,12 +1,10 @@
-# data
-
 from db_connection import database_connection
 
 
-def get_data(column_name):  # getting data from quiz db
+def get_data1(column_name, table_name="quiz", other_commands=""):  # getting data from quiz db
     quiz_db = database_connection()
     my_cursor = quiz_db.cursor()
-    my_cursor.execute(f'SELECT {column_name} FROM quiz')
+    my_cursor.execute(f"SELECT {column_name} FROM {table_name} {other_commands}")
     return my_cursor.fetchall()
 
 
@@ -24,5 +22,3 @@ def get_correct_answers(correct):
         answer_list = [each_answer]
         all_correct_answers.append(answer_list)
     return all_correct_answers
-
-

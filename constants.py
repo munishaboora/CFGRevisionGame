@@ -1,12 +1,12 @@
-# colors
-BLACK = '#17202A'
-WHITE = '#ECF0F1'
-RED = '#E74C3C'
-GREEN = '#2ECC71'
-BLUE = '#3498DB'
+# colours
+BLACK = '#000000'
+WHITE = '#FFFFFF'
+PURPLE = '#9C57E8'
 
-# font
-TITLE_FONT = ('inter', 32, 'bold')
-BUTTON_FONT = ('inter', 24, 'bold')
-QUESTION_FONT = ('inter', 24, 'bold')
-QUESTION_OPTIONS_FONT = ('inter', 18, 'bold')
+
+# fonts
+TITLE_FONT = ('barlow black', 60, 'bold')
+QUESTION_FONT = ('futura', 20, 'bold')
+OPTIONS_FONT = ('futura', 18)
+CATEGORY_FONT = ('futura', 16, 'bold')
+BUTTON_FONT = ('futura', 18, 'bold')

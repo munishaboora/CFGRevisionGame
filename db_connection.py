@@ -6,5 +6,5 @@ def database_connection():
         host="localhost",
         user="root",
         password=db_connection_pass,
-        database="quiz_game")
+        database="quiz_db")
     return quiz_db

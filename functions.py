@@ -1,5 +1,3 @@
-# func
-
 class QuizLogic:
     def __init__(self, questions):
         self.questions = questions
