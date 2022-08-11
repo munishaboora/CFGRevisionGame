@@ -1,6 +1,6 @@
 class Question:
     def __init__(self, category, topics, question, op1, op2, op3, op4, correct):
-        self.caterogy = category
+        self.category = category
         self.topics = topics
         self.question = question
         self.op1 = op1

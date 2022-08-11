@@ -1,4 +1,3 @@
-# getting data from sql
 from db_connection import database_connection
 
 
