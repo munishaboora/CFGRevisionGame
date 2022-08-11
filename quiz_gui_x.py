@@ -1,6 +1,9 @@
-from tkinter import Tk, IntVar, Label, Radiobutton, Button, messagebox
-from quiz_function_x import QuizLogic
+# gui
 
+# from tkinter import *
+from quiz_function_x import QuizLogic
+from tkinter import Tk, IntVar, Label, Radiobutton, Button, messagebox
+from constants_x import *
 
 class NoOptionSelectedError(Exception):
     def __init__(self, no_opt_msg):
@@ -9,15 +12,17 @@ class NoOptionSelectedError(Exception):
 
 def valid_option_selected(number_chosen):
     if number_chosen == 0:
-        raise NoOptionSelectedError("You must enter an answer.")
+        raise NoOptionSelectedError('You must enter an answer.')
 
 
 class QuizGui:
     def __init__(self, quiz_logic = QuizLogic) -> None:
         self.quiz = quiz_logic
         self.window = Tk()
-        self.window.title("CFG Project Quiz")
-        self.window.geometry("1000x600")
+        self.window.title('CFG Project Quiz')
+        self.window.geometry('881x600')
+        self.window.resizable(False, False)
+        # self.window.configure(bg = WHITE)
 
         # display title
         self.display_title()
@@ -44,18 +49,28 @@ class QuizGui:
         """To display title"""
 
         # title
-        title = Label(self.window, text = "CFG Project Quiz", width = 25, bg = "dark slate blue", fg = "white",
-                      font = ("courier", 50, "bold"))
+        title = Label(self.window,
+                      text = 'CFG Project Quiz',
+                      width = 25,
+                      bg = PURPLE,
+                      fg = WHITE,
+                      font = TITLE_FONT
+                      )
 
         # place of the title
-        title.place(x = 0, y = 2)
+        title.place(x = 0, y = 0)
 
     def display_question(self):
         """To display questions"""
 
         # question
-        question_txt = Label(self.window, text=str(self.quiz.next_q()), width=70,
-                             font=('courier', 14, 'bold'), anchor='w')
+        question_txt = Label(self.window,
+                             text = self.quiz.next_q(),
+                             width = 70,
+                             # bg = WHITE,
+                             font = QUESTION_FONT,
+                             anchor = 'w'
+                             )
 
         # place of the question
         question_txt.place(x=100, y=160)
@@ -73,14 +88,24 @@ class QuizGui:
         while len(opt_list) < 4:
 
             # setting the radio button properties
-            radio_button = Radiobutton(self.window, text = " ", wraplength = 800, variable = self.opt_selected,
-                                       value = len(opt_list) + 1, font = ("courier", 13))
+            radio_button = Radiobutton(self.window,
+                                       text = ' ',
+                                       # indicatoron = 1,
+                                       # width = 50,
+                                       # padx = 30,
+                                       wraplength = 700,
+                                       variable = self.opt_selected,
+                                       # bg = WHITE,
+                                       selectcolor = PURPLE,
+                                       value = len(opt_list) + 1,
+                                       font = OPTIONS_FONT,
+                                       )
 
             # adding the buttons to the list
             opt_list.append(radio_button)
 
             # placing the button
-            radio_button.place(x = 110, y = y_axis)
+            radio_button.place(x = 145, y = y_axis)
 
             # incrementing the y-axis by 65
             y_axis += 65
@@ -114,7 +139,7 @@ class QuizGui:
 
         # raise an exception when no option is selected
         except NoOptionSelectedError as no_opt_msg:
-            messagebox.showerror("Warning", f"{no_opt_msg}")
+            messagebox.showerror('Warning', f'{no_opt_msg}')
 
             while opt_num == 0:
                 valid_option_selected(opt_num)
@@ -134,27 +159,38 @@ class QuizGui:
         """To show the next and quit button"""
 
         # display the next button
-        next_button = Button(self.window, text = "Next", command = self.next_button,
-                             width = 6, bg = "dark slate blue", fg = "white", font = ("courier", 16, "bold"))
+        next_button = Button(self.window,
+                             text = 'Next',
+                             command = self.next_button,
+                             width = 6,
+                             bg = PURPLE,
+                             # fg = WHITE,
+                             font = BUTTON_FONT)
         # place of the next button
-        next_button.place(x = 820, y = 483)
+        next_button.place(x = 390, y = 500)
 
         # display the quit button
-        quit_button = Button(self.window, text = "Quit", command = self.window.destroy,
-                             width = 5, bg = "red", fg = "white", font = ("ariel", 16, " bold"))
+        quit_button = Button(self.window,
+                             text = 'Quit',
+                             command = self.window.destroy,
+                             width = 6,
+                             bg = WHITE,
+                             # fg = BLACK,
+                             font = BUTTON_FONT)
 
         # place of the quit button
-        quit_button.place(x = 700, y = 50)
+        quit_button.place(x = 745, y = 100)
 
     def result_messagebox(self):
         """To display the result using messagebox"""
 
         correct, wrong, score_perc = self.quiz.get_score()
-        correct = f"Correct: {correct}"
-        wrong = f"Wrong: {wrong}"
+        correct = f'Correct: {correct}'
+        wrong = f'Wrong: {wrong}'
 
         # calculates the percentage of correct answers
-        result = f"Score: {score_perc}%"
+        result = f'Score: {score_perc}%'
 
         # shows a message box to display the result
-        messagebox.showinfo("Result", f"{result}\n{correct}\n{wrong}")
+        messagebox.showinfo(f'Result', f'{result}\n{correct}\n{wrong}')
+

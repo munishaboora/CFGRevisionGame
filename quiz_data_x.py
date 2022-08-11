@@ -1,10 +1,12 @@
+# data
+
 from db_connection import database_connection
 
 
 def get_data(column_name):  # getting data from quiz db
     quiz_db = database_connection()
     my_cursor = quiz_db.cursor()
-    my_cursor.execute(f"SELECT {column_name} FROM quiz")
+    my_cursor.execute(f'SELECT {column_name} FROM quiz')
     return my_cursor.fetchall()
 
 

@@ -1,3 +1,4 @@
+# main
 from db_connection import database_connection
 from question_model import Question
 from quiz_data_x import *
@@ -6,9 +7,9 @@ from quiz_gui_x import *
 
 
 questions = get_data('question')
-options = get_options(option_1=get_data("ans1"), option_2=get_data("ans2"), option_3=get_data("ans3"),
-                      option_4=get_data("ans4"))
-correct_answers = get_correct_answers(correct=get_data("correct_ans"))
+options = get_options(option_1=get_data('ans1'), option_2=get_data('ans2'), option_3=get_data('ans3'),
+                      option_4=get_data('ans4'))
+correct_answers = get_correct_answers(correct=get_data('correct_ans'))
 
 
 question_bank = []
