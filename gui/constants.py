@@ -2,6 +2,7 @@
 BLACK = '#000000'
 WHITE = '#FFFFFF'
 PURPLE = '#9C57E8'
+PINK = '#F44995'
 
 
 # fonts

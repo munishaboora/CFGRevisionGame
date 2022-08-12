@@ -11,7 +11,7 @@ class CategorySelection:
         self.window.geometry('986x635')
         self.window.resizable(False, False)
         self.user_category = None
-        self.window.config(bg = 'WHITE')
+        self.window.config(bg = WHITE)
 
         # display title
         self.display_title()
@@ -26,7 +26,7 @@ class CategorySelection:
         self.category_opts = self.category_buttons()
         self.display_category_options()
 
-        # Next button
+        # next button
         self.cat_next_button()
 
         # mainloop
@@ -77,7 +77,7 @@ class CategorySelection:
                                     text = ' ',
                                     indicatoron = False,
                                     width = 40,
-                                    # relief = 'flat',
+                                    bg = PINK,
                                     wraplength = 675,
                                     variable = self.category_opt_selected,
                                     value = len(category_list) + 1,
@@ -98,7 +98,6 @@ class CategorySelection:
 
     def display_category_options(self):
         """To display categories"""
-        # val = 0
 
         # resetting the categories selected
         self.category_opt_selected.set(0)
@@ -110,13 +109,15 @@ class CategorySelection:
             val += 1
 
     def category_next_button(self):
+        """Make sure that a category is selected"""
 
         try:
             category_num_chosen = self.category_opt_selected.get()
             valid_option_selected(category_num_chosen)
 
-        except NoOptionSelectedError as no_opt_msg:  # at this point raise exception if no option is selected
-            messagebox.showerror("Warning", f"{no_opt_msg}")
+        # raise an exception when no option is selected
+        except NoOptionSelectedError as no_opt_msg:
+            messagebox.showwarning("Warning", f"{no_opt_msg}")
             number_chosen = self.opt_selected.get()
 
             while number_chosen == 0:
@@ -124,8 +125,9 @@ class CategorySelection:
                 valid_option_selected(category_num_chosen)
         else:
             if category_num_chosen := str(self.categories[category_num_chosen - 1])[2:-3]:
-                # global user_category
                 self.user_category = category_num_chosen
+
+                # destroy the window once the category is selected
                 self.window.destroy()
 
     def cat_next_button(self):
@@ -136,8 +138,7 @@ class CategorySelection:
                                  text = "Let's get started!",
                                  command = self.category_next_button,
                                  width = 18,
-                                 # bg = "dark slate blue",
-                                 # fg = "white",
+                                 bg = PINK,
                                  font = BUTTON_FONT
                                  )
 

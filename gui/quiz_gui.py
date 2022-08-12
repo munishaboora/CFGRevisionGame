@@ -11,6 +11,7 @@ class QuizGui:
         self.window.title('CFG Project Quiz')
         self.window.geometry('986x635')
         self.window.resizable(False, False)
+        self.window.config(bg = WHITE)
 
         # display title
         self.display_title()
@@ -54,6 +55,7 @@ class QuizGui:
                              text = self.quiz.next_q(),
                              width = 60,
                              wraplength = 760,
+                             bg = WHITE,
                              justify = 'left',
                              pady = 25,
                              font = QUESTION_FONT,
@@ -80,8 +82,10 @@ class QuizGui:
                                        text = ' ',
                                        wraplength = 675,
                                        variable = self.opt_selected,
+                                       bg = WHITE,
                                        value = len(opt_list) + 1,
-                                       font = OPTIONS_FONT
+                                       font = OPTIONS_FONT,
+                                       justify = 'left'
                                        )
 
             # adding the buttons to the list
@@ -122,7 +126,7 @@ class QuizGui:
 
         # raise an exception when no option is selected
         except NoOptionSelectedError as no_opt_msg:
-            messagebox.showerror('Warning', f'{no_opt_msg}')
+            messagebox.showwarning('Warning', f'{no_opt_msg}')
 
             while opt_num == 0:
                 valid_option_selected(opt_num)
@@ -150,18 +154,6 @@ class QuizGui:
                              font = BUTTON_FONT)
         # place of the next button
         next_button.place(x = 430, y = 545)
-
-        # # display the quit button
-        # quit_button = Button(self.window,
-        #                      text = 'Quit',
-        #                      command = self.window.destroy,
-        #                      width = 6,
-        #                      bg = WHITE,
-        #                      # fg = BLACK,
-        #                      font = BUTTON_FONT)
-        #
-        # # place of the quit button
-        # quit_button.place(x = 835, y = 110)
 
     def result_messagebox(self):
         """To display the result using messagebox"""

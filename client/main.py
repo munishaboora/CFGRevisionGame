@@ -6,8 +6,10 @@ from CFGRevisionGame.gui.quiz_gui import QuizGui
 from random import shuffle
 
 
-# This function removes unwanted punctuation when printing
 def topic_question_bank(user_category):
+    """This function retrieves questions related to a category in which it group the questions,
+    options and the correct answers in a class object"""
+
     question_bank = []
 
     questions1 = get_data("question", "quiz", f"WHERE category_id = \"{user_category}\"")
@@ -29,9 +31,13 @@ def topic_question_bank(user_category):
     return question_bank
 
 
-categories = get_data("category_id", "quiz_categories", "GROUP BY category_id")  # Getting categories from DB
+# Getting categories from DB
+categories = get_data("category_id", "quiz_categories", "GROUP BY category_id")
+
+# Calls the main menu gui
 category_select = CategorySelection(categories)
 user_cat = category_select.user_category
 
+# Calls the quiz gui
 quiz_game = QuizLogic(topic_question_bank(user_cat))
 quiz_gui = QuizGui(quiz_game)
