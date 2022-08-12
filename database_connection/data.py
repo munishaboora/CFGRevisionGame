@@ -1,7 +1,8 @@
-from db_connection import database_connection
+from CFGRevisionGame.database_connection.db_utils import database_connection
 
 
-def get_data1(column_name, table_name="quiz", other_commands=""):  # getting data from quiz db
+# Getting data from quiz mysql_database
+def get_data(column_name, table_name="quiz", other_commands=""):
     quiz_db = database_connection()
     my_cursor = quiz_db.cursor()
     my_cursor.execute(f"SELECT {column_name} FROM {table_name} {other_commands}")

@@ -1,6 +1,6 @@
 from tkinter import Tk, IntVar, Label, Radiobutton, Button, messagebox
-from error_except import *
-from constants import *
+from CFGRevisionGame.client.invalid_selection_error import *
+from CFGRevisionGame.gui.constants import *
 
 
 class CategorySelection:
@@ -11,6 +11,7 @@ class CategorySelection:
         self.window.geometry('986x635')
         self.window.resizable(False, False)
         self.user_category = None
+        self.window.config(bg = 'WHITE')
 
         # display title
         self.display_title()
@@ -53,6 +54,7 @@ class CategorySelection:
         ask_category = Label(self.window,
                              text = "Select a category to revise:",
                              width = 70,
+                             bg = WHITE,
                              font = QUESTION_FONT,
                              anchor = 'w'
                              )

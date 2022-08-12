@@ -1,7 +1,7 @@
 from tkinter import Tk, IntVar, Label, Radiobutton, Button, messagebox
-from functions import QuizLogic
-from error_except import *
-from constants import *
+from CFGRevisionGame.client.quiz_functions import QuizLogic
+from CFGRevisionGame.client.invalid_selection_error import *
+from CFGRevisionGame.gui.constants import *
 
 
 class QuizGui:
@@ -11,7 +11,6 @@ class QuizGui:
         self.window.title('CFG Project Quiz')
         self.window.geometry('986x635')
         self.window.resizable(False, False)
-        # self.window.configure(bg = BLACK)
 
         # display title
         self.display_title()

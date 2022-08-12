@@ -1,54 +1,37 @@
-import itertools
-from api.revision_game import get_data, string_slice
+from CFGRevisionGame.database_connection.data import *
+from CFGRevisionGame.client.question_model import Question
+from CFGRevisionGame.gui.main_menu_gui import CategorySelection
+from CFGRevisionGame.client.quiz_functions import QuizLogic
+from CFGRevisionGame.gui.quiz_gui import QuizGui
+from random import shuffle
 
 
-class MultipleChoiceQuiz:
-    def __init__(self):
-        self.questions = get_data("question")
-        self.ans1 = get_data("ans1")
-        self.ans2 = get_data("ans2")
-        self.ans3 = get_data("ans3")
-        self.ans4 = get_data("ans4")
-        self.correct_ans = get_data("correct_ans")
-        self.score = 0
-        self.quiz_length = len(self.questions)
-        self.num_questions_answered = 0
-        self.answered_incorrectly = {}
+# This function removes unwanted punctuation when printing
+def topic_question_bank(user_category):
+    question_bank = []
 
-    def start_game(self):
+    questions1 = get_data("question", "quiz", f"WHERE category_id = \"{user_category}\"")
+    options1 = get_options(option_1 = get_data("option_1", "quiz", f"WHERE category_id = \"{user_category}\""),
+                           option_2 = get_data("option_2", "quiz", f"WHERE category_id = \"{user_category}\""),
+                           option_3 = get_data("option_3", "quiz", f"WHERE category_id = \"{user_category}\""),
+                           option_4 = get_data("option_4", "quiz", f"WHERE category_id = \"{user_category}\""))
+    correct_answers1 = get_data("correct_answer", "quiz", f"WHERE category_id = \"{user_category}\"")
 
-        while self.num_questions_answered < self.quiz_length:
-            for question, correct_answer, ansA, ansB, ansC, ansD in itertools.zip_longest(self.questions,
-                                                                                          self.correct_ans, self.ans1,
-                                                                                          self.ans2, self.ans3,
-                                                                                          self.ans4):
-
-                print(f"\n{string_slice(question)}\na- {string_slice(ansA)}\nb- {string_slice(ansB)}\n"
-                      f"c- {string_slice(ansC)}\nd- {string_slice(ansD)}\n")
-                input_answer = (input("Enter your answer [a/b/c/d]: ").lower())
-
-                while input_answer not in ["a", "b", "c", "d"]:
-                    input_answer = (input("Enter your answer [a/b/c/d]: ").lower())
-
-                if input_answer == "a":
-                    input_answer = ansA
-                elif input_answer == "b":
-                    input_answer = ansB
-                elif input_answer == "c":
-                    input_answer = ansC
-                elif input_answer == "d":
-                    input_answer = ansD
-
-                if input_answer == correct_answer:
-                    self.score += 1
-                else:
-                    self.answered_incorrectly.update({string_slice(question): string_slice(correct_answer)})
-
-                self.num_questions_answered += 1
-
-        percentage = int(round((self.score / self.quiz_length) * 100))
-        return print(f"\nFinal score: {self.score}/{self.quiz_length}\nPercentage: {percentage}%")
+    for question_number in range(len(questions1)):
+        question_text = str(questions1[question_number])[2:-3]
+        option = options1[question_number]
+        opt = [''.join(i) for i in option]
+        correct_answer = correct_answers1[question_number]
+        ans = [''.join(i) for i in correct_answer]
+        shuffle(opt)
+        new_question = Question(question_text, ans[0], opt)
+        question_bank.append(new_question)
+    return question_bank
 
 
-new_game = MultipleChoiceQuiz()
-new_game.start_game()
+categories = get_data("category_id", "quiz_categories", "GROUP BY category_id")  # Getting categories from DB
+category_select = CategorySelection(categories)
+user_cat = category_select.user_category
+
+quiz_game = QuizLogic(topic_question_bank(user_cat))
+quiz_gui = QuizGui(quiz_game)
