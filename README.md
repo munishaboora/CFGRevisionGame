@@ -13,7 +13,7 @@ Our project is a revision application designed specifically for all CodeFirstGir
 To use our revision application:
 
 - Download all files in CFGRevisionGame repository
-- Open MySQL and run the Revision_Game.sql file.
+- Open MySQL and run the revision_game.sql file.
 - In the db_utils.py file, enter your MySQL password.
 
 
