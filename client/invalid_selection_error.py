@@ -5,7 +5,7 @@ class NoOptionSelectedError(Exception):
 
 
 def valid_option_selected(number_chosen):
-    """Raise an error when no number is chosen"""
+    """Raises an error when no number is chosen"""
 
     if number_chosen == 0:
         raise NoOptionSelectedError('You must enter an answer.')
