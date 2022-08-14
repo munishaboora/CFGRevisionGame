@@ -21,4 +21,4 @@ To use our revision application:
 ## Screenshots from our project:
 ![Quiz main screen!](https://drive.google.com/uc?export=view&id=16ORRIsj8Vz3ku4_-MXGZweg6LOxff3H1)
 
-https://drive.google.com/file/d/16ORRIsj8Vz3ku4_-MXGZweg6LOxff3H1/view?usp=sharing
+![Quiz question example!](https://drive.google.com/uc?export=view&id=1R-LcY8h3yNnRFpSPaSV-7TZqlSg_PQbq)
