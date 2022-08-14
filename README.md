@@ -22,3 +22,9 @@ To use our revision application:
 ![Quiz main screen!](https://drive.google.com/uc?export=view&id=16ORRIsj8Vz3ku4_-MXGZweg6LOxff3H1)
 
 ![Quiz question example!](https://drive.google.com/uc?export=view&id=1R-LcY8h3yNnRFpSPaSV-7TZqlSg_PQbq)
+
+![Quiz warning example!](https://drive.google.com/uc?export=view&id=1vcQ1_n7Tm9_185WVuCs_sVj1doudU8IL)
+
+![Quiz score example!](https://drive.google.com/uc?export=view&id=1CzphOcTlTP4OUJZJzBV98uVrPnG4NgV4)
+
+
