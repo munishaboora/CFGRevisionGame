@@ -7,11 +7,12 @@ from random import shuffle
 
 
 def topic_question_bank(user_category):
-    """This function retrieves questions related to a category in which it group the questions,
+    """This function retrieves questions related to a category in which it groups the questions,
     options and the correct answers in a class object"""
 
     question_bank = []
 
+    # retrieving required data from the database
     questions1 = get_data("question", "quiz", f"WHERE category_id = \"{user_category}\"")
     options1 = get_options(option_1 = get_data("option_1", "quiz", f"WHERE category_id = \"{user_category}\""),
                            option_2 = get_data("option_2", "quiz", f"WHERE category_id = \"{user_category}\""),
@@ -19,6 +20,7 @@ def topic_question_bank(user_category):
                            option_4 = get_data("option_4", "quiz", f"WHERE category_id = \"{user_category}\""))
     correct_answers1 = get_data("correct_answer", "quiz", f"WHERE category_id = \"{user_category}\"")
 
+    # removes unnecessary characters from the data
     for question_number in range(len(questions1)):
         question_text = str(questions1[question_number])[2:-3]
         option = options1[question_number]

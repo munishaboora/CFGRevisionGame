@@ -1,3 +1,4 @@
+# A class that raise an error
 class NoOptionSelectedError(Exception):
     def __init__(self, no_opt_msg):
         super().__init__(no_opt_msg)

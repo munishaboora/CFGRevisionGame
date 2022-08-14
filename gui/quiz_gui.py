@@ -150,7 +150,7 @@ class QuizGui:
                              text = 'Next',
                              command = self.next_button,
                              width = 6,
-                             bg = PURPLE,
+                             bg = LIGHTPURPLE,
                              font = BUTTON_FONT)
         # place of the next button
         next_button.place(x = 430, y = 545)

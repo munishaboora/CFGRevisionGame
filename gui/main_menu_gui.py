@@ -77,7 +77,8 @@ class CategorySelection:
                                     text = ' ',
                                     indicatoron = False,
                                     width = 40,
-                                    bg = PINK,
+                                    # fg = WHITE,
+                                    bg = LIGHTPURPLE,
                                     wraplength = 675,
                                     variable = self.category_opt_selected,
                                     value = len(category_list) + 1,
@@ -88,7 +89,7 @@ class CategorySelection:
             category_list.append(radio_btn)
 
             # place of the button
-            radio_btn.place(x = 240, y = y_axis)
+            radio_btn.place(x = 275, y = y_axis)
 
             # incrementing the y-axis by 65
             y_axis += 70
@@ -118,7 +119,7 @@ class CategorySelection:
         # raise an exception when no option is selected
         except NoOptionSelectedError as no_opt_msg:
             messagebox.showwarning("Warning", f"{no_opt_msg}")
-            number_chosen = self.opt_selected.get()
+            number_chosen = self.category_opt_selected.get()
 
             while number_chosen == 0:
                 category_num_chosen = self.category_opt_selected.get()
@@ -138,7 +139,7 @@ class CategorySelection:
                                  text = "Let's get started!",
                                  command = self.category_next_button,
                                  width = 18,
-                                 bg = PINK,
+                                 bg = LIGHTPURPLE,
                                  font = BUTTON_FONT
                                  )
 

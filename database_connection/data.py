@@ -16,14 +16,3 @@ def get_options(option_1, option_2, option_3, option_4):
         new_list = [option_1, option_2, option_3, option_4]
         answer_options.append(new_list)
     return answer_options
-
-
-# Getting correct answers
-# def get_correct_answers(correct):
-#     all_correct_answers = []
-#     for each_answer in correct:
-#         answer_list = [each_answer]
-#         all_correct_answers.append(answer_list)
-#     return all_correct_answers
-
-# print(get_correct_answers(correct))
