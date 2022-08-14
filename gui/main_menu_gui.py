@@ -7,7 +7,7 @@ class CategorySelection:
     def __init__(self, categories):
         self.categories = categories
         self.window = Tk()
-        self.window.title('CFG Project Quiz')
+        self.window.title('CFG Revision Game')
         self.window.geometry('986x635')
         self.window.resizable(False, False)
         self.user_category = None
@@ -37,7 +37,7 @@ class CategorySelection:
 
         # title
         title = Label(self.window,
-                      text = 'CFG Project Quiz',
+                      text = 'CFG Revision Game',
                       width = 28,
                       bg = PURPLE,
                       fg = WHITE,

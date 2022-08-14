@@ -10,6 +10,7 @@ def topic_question_bank(user_category):
     """This function retrieves questions related to a category in which it groups the questions,
     options and the correct answers in a class object"""
 
+    # initialise an empty list for question_bank
     question_bank = []
 
     # retrieving required data from the database

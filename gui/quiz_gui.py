@@ -8,7 +8,7 @@ class QuizGui:
     def __init__(self, quiz_logic = QuizLogic) -> None:
         self.quiz = quiz_logic
         self.window = Tk()
-        self.window.title('CFG Project Quiz')
+        self.window.title('CFG Revision Game')
         self.window.geometry('986x635')
         self.window.resizable(False, False)
         self.window.config(bg = WHITE)
@@ -37,7 +37,7 @@ class QuizGui:
 
         # title
         title = Label(self.window,
-                      text = 'CFG Project Quiz',
+                      text = 'CFG Revision Game',
                       width = 28,
                       bg = PURPLE,
                       fg = WHITE,
