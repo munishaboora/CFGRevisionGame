@@ -15,6 +15,7 @@ To use our revision application:
 - Download all files in CFGRevisionGame repository
 - Open MySQL and run the revision_game.sql file.
 - In the db_utils.py file, enter your MySQL password.
+- To run the quiz, run the code in the main.py file.
 
 
 
